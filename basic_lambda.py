@@ -5,7 +5,11 @@ import logging
 import json
 
 class BasicLambda():
-    pass
+    def __init__(self):
+        self.response = { 'message': "Hello world..."}
+
+    def get_response(self):
+        return self.response
 
 def lambda_handler(event, context):
     """
@@ -14,8 +18,9 @@ def lambda_handler(event, context):
     :param context:
     :return: Json response
     """
-    response = { 'message:', "Hello world..."}
-    return json.dumps(response)
+    my_object = BasicLambda()
+
+    return json.dumps(my_object.get_response())
 
 def main():
     """
