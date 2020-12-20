@@ -1,8 +1,11 @@
 import os
 import sys
-import boto3
+#import boto3
 import logging
 import json
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 class BasicLambda():
     def __init__(self):
@@ -20,7 +23,10 @@ def lambda_handler(event, context):
     """
     my_object = BasicLambda()
 
-    return json.dumps(my_object.get_response())
+    my_response = { 'statusCode': 200, 'body': json.dumps(my_object.get_response())}
+    print("my_response={}".format(my_response))
+    logger.info("my_response={}".format(my_response))
+    return my_response
 
 def main():
     """
