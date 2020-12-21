@@ -24,7 +24,7 @@ def lambda_handler(event, context):
     my_object = BasicLambda()
 
     my_response = { 'statusCode': 200, 'body': json.dumps(my_object.get_response())}
-    print("my_response={}".format(my_response))
+    print(f"my_response={my_response}")
     logger.info("my_response={}".format(my_response))
     return my_response
 
